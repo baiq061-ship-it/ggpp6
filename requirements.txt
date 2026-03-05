@@ -1,8 +1,10 @@
+# requirements.txt 完整建議內容（覆蓋或更新你的檔案）
 streamlit>=1.38.0
 pandas>=2.0.0
 numpy>=1.23.0,<2.0.0
-scikit-learn==1.2.2        
+scikit-learn==1.2.2          # ← 這行最關鍵，鎖定 1.2.2 與舊模型相容
 joblib>=1.2.0
 matplotlib>=3.7.0
-openpyxl                    
-imbalanced-learn>=0.10.0    
+openpyxl                     # 如果批量用 Excel
+imbalanced-learn>=0.10.0     # 如果之前有 imblearn 依賴
+
