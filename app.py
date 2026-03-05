@@ -1,5 +1,4 @@
-import sklearn
-st.sidebar.write("scikit-learn 版本：", sklearn.__version__)
+# ==============================
 # 必须第一条 Streamlit 命令
 # ==============================
 import streamlit as st
@@ -20,7 +19,7 @@ import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
-# 顯示 scikit-learn 版本（方便 debug，上線後可移除）
+# 加這一行來修 NameError
 import sklearn
 st.sidebar.write("scikit-learn 版本：", sklearn.__version__)
 
@@ -72,7 +71,6 @@ st.title("🏥 臨床診斷預測系統")
 def process_input(model, df):
     X = df.copy()
     if hasattr(model, "named_steps"):
-        # 如果是 Pipeline，取最後一步前的 transformer 處理輸入
         preprocessor = model[:-1] if len(model.named_steps) > 1 else None
         if preprocessor is not None:
             X = preprocessor.transform(df)
@@ -174,5 +172,4 @@ with tab2:
                             st.text(str(e))
         except Exception as e:
             st.error("檔案讀取失敗，請確認格式正確")
-
             st.text(str(e))
