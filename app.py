@@ -1,4 +1,5 @@
-# ==============================
+import sklearn
+st.sidebar.write("scikit-learn 版本：", sklearn.__version__)
 # 必须第一条 Streamlit 命令
 # ==============================
 import streamlit as st
@@ -173,4 +174,5 @@ with tab2:
                             st.text(str(e))
         except Exception as e:
             st.error("檔案讀取失敗，請確認格式正確")
+
             st.text(str(e))
